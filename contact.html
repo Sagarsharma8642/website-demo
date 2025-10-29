@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's Chat About Your SAT Dreams!</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa, #f1e8ff);
+            color: #333;
+            padding: 32px 0 32px 0;
+            min-height: 100vh;
+        }
+
+        .contact-section {
+            text-align: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 36px;
+            font-size: 1.08rem;
+        }
+
+        .contact-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 48px;
+            flex-wrap: wrap;
+            width: 100vw;
+            max-width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            margin-right: calc(-50vw + 50%);
+        }
+
+        /* Left Section */
+        .contact-info {
+
+            border-radius: 18px;
+            padding: 28px 24px 24px 24px;
+            width: 50vw;
+            min-width: 320px;
+            max-width: 700px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.25rem;
+            margin-bottom: 18px;
+            color: #6a3cff;
+            font-weight: 600;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            margin-right: 13px;
+            flex-shrink: 0;
+        }
+
+        .phone {
+            background: linear-gradient(135deg, #8A77FF, #6AD2FF);
+        }
+
+        .email {
+            background: linear-gradient(135deg, #6AD2FF, #8AFFC1);
+        }
+
+        .location {
+            background: linear-gradient(135deg, #FF7AA2, #FFB58A);
+        }
+
+        .clock {
+            background: linear-gradient(135deg, #FFD36A, #FFA45A);
+        }
+
+        h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .info-item p {
+            font-size: 0.92rem;
+            color: #555;
+        }
+
+        /* Right Form */
+        .contact-form {
+            background: linear-gradient(135deg, #ffeaff, #fff6ff);
+            border-radius: 18px;
+            padding: 28px 24px 24px 24px;
+            width: 50vw;
+            min-width: 320px;
+            max-width: 700px;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.07);
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .contact-form h3 {
+            font-size: 1.18rem;
+            margin-bottom: 18px;
+            color: #6a3cff;
+            font-weight: 600;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 12px;
+        }
+
+        .form-group {
+            margin-bottom: 13px;
+            width: 100%;
+        }
+
+        label {
+            font-weight: 600;
+            font-size: 0.93rem;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 9px 11px;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+            background: #fff;
+            font-size: 0.97rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+            margin-bottom: 2px;
+        }
+
+        button {
+            background: linear-gradient(135deg, #8A77FF, #6AD2FF);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+            margin-top: 8px;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.09);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 900px) {
+            .contact-container {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 28px;
+            }
+
+            .contact-info,
+            .contact-form {
+                width: 100%;
+                max-width: 100vw;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 12px 0 12px 0;
+            }
+
+            .contact-section {
+                padding: 0 4px;
+            }
+
+            h1 {
+                font-size: 1.3rem;
+            }
+
+            .contact-form,
+            .contact-info {
+                padding: 16px 6px 14px 6px;
+                border-radius: 10px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            }
+
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            label,
+            input,
+            select {
+                font-size: 0.93rem;
+            }
+
+            button {
+                font-size: 0.97rem;
+                padding: 10px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="contact-section">
+        <h1>Let's Chat About Your SAT Dreams!</h1>
+        <p class="subtitle">🌟 Ready to join the SAT success squad? Hit us up and let's make your college dreams come
+            true!</p>
+
+        <div class="contact-container">
+
+            <!-- Left Contact Info -->
+            <div class="contact-info">
+                <h3>Let's Connect! <span>♡</span></h3>
+
+                <div class="info-item">
+                    <div class="icon phone"
+                        style="display:flex;align-items:center;justify-content:center;font-size:1.3rem;">📞</div>
+                    <div>
+                        <h4>Call or Text Us!</h4>
+                        <p>+91 98765 43210</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="icon email"
+                        style="display:flex;align-items:center;justify-content:center;font-size:1.3rem;">✉️</div>
+                    <div>
+                        <h4>Drop Us an Email!</h4>
+                        <p>info@satexcellence.com</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="icon location"
+                        style="display:flex;align-items:center;justify-content:center;font-size:1.3rem;">📍</div>
+                    <div>
+                        <h4>Where We Are</h4>
+                        <p>🌐 Online + Cool Offline Centers</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="icon clock"
+                        style="display:flex;align-items:center;justify-content:center;font-size:1.3rem;">⏰</div>
+                    <div>
+                        <h4>When We're Available</h4>
+                        <p>Mon–Sat: 9 AM – 7 PM ☀️</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Contact Form -->
+            <form class="contact-form"  method="POST">
+                <h3>💌 Send Us a Message 🔍</h3>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>🌼 Name</label>
+                        <input type="text" name="name" placeholder="Your full name" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>📧 Email</label>
+                    <input type="email" name="email" placeholder="your.email@awesome.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label>📱 Phone</label>
+                    <input type="text" name="phone" placeholder="+91 your number" required>
+                </div>
+
+                <div class="form-group">
+                    <label>🎓 How Do You Want to Learn?</label>
+                    <select name="learning_mode" required>
+                        <option value="">Pick your style! 🌼</option>
+                        <option>Online Coaching</option>
+                        <option>Offline Center</option>
+                        <option>Hybrid (Both)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>📝 Description</label>
+                    <textarea name="description" rows="4" placeholder="Tell us about your SAT goals or questions..."
+                        style="width:100%;padding:9px 11px;border-radius:8px;font-size:0.97rem;resize:vertical;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,0.04);border:none;outline:none;"
+                        required></textarea>
+                </div>
+
+                <button type="submit">Send Message 🚀</button>
+                <div style="font-size:0.93rem;color:#666;margin-top:8px;">We'll never share your info. You'll get a
+                    confirmation email after submitting.</div>
+            </form>
+
+        </div>
+    </section>
+
+</body>
+
+</html>
