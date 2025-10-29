@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crimson Education Clone</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- SwiperJS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #0b0b0b;
+            padding: 1rem 2rem;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: #fff !important;
+        }
+
+        .nav-link {
+            color: #fff !important;
+            margin-right: 20px;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .nav-link:hover {
+            color: #ff2b2b !important;
+        }
+
+        .btn-get-started {
+            background-color: #ff2b2b;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 4px;
+            color: #fff;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-get-started:hover {
+            background-color: #d61f1f;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at right, #400000 0%, #000 60%);
+            padding-top: 80px;
+            overflow: hidden;
+        }
+
+        .hero .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 30px;
+        }
+
+        .hero-text h5 {
+            font-style: italic;
+            color: #d4d4d4;
+            font-weight: 400;
+            font-size: 1.2rem;
+        }
+
+        .hero-text h1 {
+            font-weight: 700;
+            font-size: 3.3rem;
+            line-height: 1.2;
+            margin: 20px 0;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: #cfcfcf;
+        }
+
+        .hero-img {
+            flex: 1;
+            text-align: right;
+        }
+
+        .hero-img img {
+            width: 90%;
+            max-width: 520px;
+            border-radius: 8px;
+            object-fit: cover;
+            mix-blend-mode: lighten;
+        }
+
+
+        /* Webinars & Events Section */
+        .webinars-section .acceptance-card {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .webinars-section .acceptance-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
+        }
+
+        .webinars-section img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .webinars-section .acceptance-content {
+            padding: 16px;
+        }
+
+        .webinars-section .inperson {
+            display: inline-block;
+            font-size: 0.75rem;
+            color: #a00;
+            background: #f9eaea;
+            border: 1px solid #f3c5c5;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: 6px;
+        }
+
+        .webinars-section .signup-link {
+            color: #a00;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .webinars-section .signup-link:hover {
+            color: #ff2b2b;
+        }
+
+        .webinar-btn {
+            color: #a00 !important;
+            margin-top: 15px;
+        }
+
+        /* fix swiper layout like half card showing */
+        .webinars-section .swiper {
+            overflow: visible;
+            padding-bottom: 50px;
+        }
+
+        /* ---- Position arrows at bottom-right ---- */
+        .webinars-section .swiper {
+            position: relative;
+            overflow: visible;
+            padding-bottom: 60px;
+            /* space for arrows */
+        }
+
+        .webinars-section .swiper-button-prev,
+        .webinars-section .swiper-button-next {
+            position: absolute;
+            bottom: 0;
+            top: auto;
+            /* remove top alignment */
+            transform: none;
+            color: #a00;
+        }
+
+        .webinars-section .swiper-button-prev {
+            right: 60px;
+            /* adjust spacing from right */
+            left: auto;
+        }
+
+        .webinars-section .swiper-button-next {
+            right: 20px;
+        }
+
+        .webinars-section .swiper-button-prev::after,
+        .webinars-section .swiper-button-next::after {
+            font-size: 20px;
+            /* smaller arrows */
+        }
+
+        .webinars-section .swiper-button-prev:hover,
+        .webinars-section .swiper-button-next:hover {
+            color: #ff2b2b;
+        }
+
+        /* ---- Position and style Swiper navigation buttons ---- */
+        .webinars-section .swiper {
+            position: relative;
+            overflow: visible;
+            padding-bottom: 70px;
+            /* give space for buttons */
+        }
+
+        /* Position arrows at bottom-right */
+        .webinars-section .swiper-button-prev,
+        .webinars-section .swiper-button-next {
+            position: absolute;
+            bottom: 15px;
+            top: auto;
+            width: 42px;
+            height: 42px;
+            /* border-radius: 50%; */
+            background-color: #fff;
+            color: #a00;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        /* Hover effect */
+        .webinars-section .swiper-button-prev:hover,
+        .webinars-section .swiper-button-next:hover {
+            /* background-color: #a00; */
+            color: #fff;
+            /* transform: translateY(-2px); */
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Icon size inside buttons */
+        .webinars-section .swiper-button-prev::after,
+        .webinars-section .swiper-button-next::after {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /* Specific positioning */
+        .webinars-section .swiper-button-prev {
+            right: 70px;
+            left: auto;
+        }
+
+        .webinars-section .swiper-button-next {
+            right: 20px;
+        }
+
+        /* Make sure arrows stay above content */
+        .webinars-section .swiper-button-prev,
+        .webinars-section .swiper-button-next {
+            z-index: 10;
+        }
+
+        /* Responsive: center them below on mobile */
+        @media (max-width: 768px) {
+
+            .webinars-section .swiper-button-prev,
+            .webinars-section .swiper-button-next {
+                position: static;
+                margin: 10px 5px 0;
+            }
+
+            .webinars-section .swiper {
+                text-align: center;
+            }
+        }
+
+
+        @media (max-width: 768px) {
+
+            .webinars-section .swiper-button-prev,
+            .webinars-section .swiper-button-next {
+                bottom: -10px;
+                right: auto;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Main Heading Section */
+        .main-heading {
+            padding: 100px 0;
+            background: linear-gradient(45deg, #000 0%, #400000 100%);
+        }
+
+        .main-heading h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .main-heading .lead {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Scroll Services Section */
+        .scroll-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .left-text {
+            flex: 1;
+            position: sticky;
+            top: 40vh;
+            padding: 20px;
+            padding-left: 45px;
+        }
+
+        #scroll-services h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #222;
+            margin-bottom: 1rem;
+        }
+
+        #scroll-services p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .right-images {
+            flex: 1;
+            position: relative;
+            height: 500vh;
+        }
+
+        #image-slider {
+            position: sticky;
+            top: 20vh;
+            height: 70vh;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        #image-slider img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .slide {
+            /* width: 100%; */
+            /* height: 100%; */
+            /* object-fit: cover; */
+            position: absolute;
+            top: 100%;
+            left: 0;
+            opacity: 0;
+            transition: all 0.8s ease-in-out;
+        }
+
+        .slide.active {
+            top: 0;
+            opacity: 1;
+        }
+
+        .slide.prev {
+            top: -100%;
+            opacity: 0;
+        }
+
+        /* Responsive styles for scroll services */
+        @media (max-width: 992px) {
+            #scroll-services {
+                padding: 80px 0;
+            }
+
+            .container {
+                flex-direction: column;
+            }
+
+            .left-text {
+                position: relative;
+                top: 0;
+                margin-bottom: 40px;
+                text-align: center;
+            }
+
+            #service-text h2 {
+                font-size: 1.8rem;
+            }
+
+            #service-text p {
+                font-size: 1rem;
+            }
+
+            .right-images {
+                height: 400vh;
+            }
+
+            #image-slider {
+                height: 60vh;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #scroll-services {
+                padding: 60px 0;
+            }
+
+            .right-images {
+                height: 300vh;
+            }
+
+            #image-slider {
+                height: 50vh;
+            }
+        }
+
+        @media (max-width: 576px) {
+            #scroll-services {
+                padding: 40px 0;
+            }
+
+            #service-text h2 {
+                font-size: 1.5rem;
+            }
+
+            .right-images {
+                height: 200vh;
+            }
+
+            #image-slider {
+                height: 40vh;
+            }
+        }
+
+        .slide {
+            /* position: absolute; */
+            /* width: 100%; */
+            /* height: 100%; */
+            /* object-fit: cover; */
+            top: 100%;
+            left: 0;
+            opacity: 0;
+            transition: all 0.8s ease-in-out;
+        }
+
+        .slide.active {
+            top: 0;
+            opacity: 1;
+        }
+
+        .slide.prev {
+            top: -100%;
+            opacity: 0;
+        }
+
+
+        /* Footer */
+        footer {
+            background-color: #fff;
+            color: #400000;
+            padding: 60px 0 20px;
+        }
+
+        footer h5 {
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #7a0e0e;
+        }
+
+        footer a {
+            color: #7a0e0e;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .social-icons a {
+            background-color: #7a0e0e;
+            color: #fff;
+            border-radius: 50%;
+            display: inline-block;
+            width: 38px;
+            height: 38px;
+            line-height: 38px;
+            text-align: center;
+            margin-right: 8px;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            background-color: #c41e3a;
+        }
+
+        .language-btn {
+            border: 1px solid #7a0e0e;
+            padding: 6px 12px;
+            border-radius: 5px;
+            color: #7a0e0e;
+            display: inline-flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .language-btn i {
+            margin-right: 8px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-img img {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .navbar {
+                padding: 0.5rem 1rem;
+            }
+
+            .nav-link {
+                padding: 0.5rem 0;
+            }
+
+            .hero {
+                text-align: center;
+                padding: 100px 20px 60px;
+                min-height: auto;
+            }
+
+            .hero .container {
+                flex-direction: column;
+            }
+
+            .hero-img {
+                text-align: center;
+                margin-top: 30px;
+            }
+
+            .hero-text {
+                padding-right: 0;
+            }
+
+            .hero-text h1 {
+                font-size: 2.4rem;
+            }
+
+            .webinars-section .acceptance-card {
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-nav {
+                padding: 1rem 0;
+                background: rgba(11, 11, 11, 0.95);
+            }
+
+            .nav-item {
+                text-align: center;
+            }
+
+            .hero {
+                text-align: center;
+                padding: 80px 15px 40px;
+            }
+
+            .hero-text {
+                margin-bottom: 40px;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-text h5 {
+                font-size: 1rem;
+            }
+
+            .hero-text p {
+                font-size: 1rem;
+            }
+
+            .hero-img img {
+                max-width: 100%;
+                margin: 0 auto;
+            }
+
+            #scroll-services {
+                padding: 60px 0;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .footer .col-md-3 {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar-brand {
+                font-size: 1.2rem;
+            }
+
+            .hero-text h1 {
+                font-size: 1.8rem;
+            }
+
+            .btn-get-started {
+                width: 100%;
+                margin: 10px 0;
+            }
+
+            .webinars-section h1 {
+                font-size: 1.8rem;
+            }
+
+            .acceptance-card {
+                margin: 0 10px;
+            }
+
+            footer {
+                padding: 40px 0 20px;
+            }
+
+            .footer-bottom {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand" href="#">Crimson Education</a>
+            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Our Services</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">US Admissions</a></li>
+                            <li><a class="dropdown-item" href="#">UK Admissions</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">About Crimson</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Our Story</a></li>
+                            <li><a class="dropdown-item" href="#">Results</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Admission Resources</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">SAT Prep</a></li>
+                            <li><a class="dropdown-item" href="#">ACT Prep</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Events</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="#" class="btn btn-get-started">Get Started</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-text">
+                <h5>Thousands Apply. Few Stand Out.</h5>
+                <h1>We'll Make Sure You're One of Them.</h1>
+                <p>
+                    The only university admissions consultants with over 1,330 Ivy League acceptances and counting.
+                </p>
+            </div>
+            <div class="hero-img">
+                <img src="jenna-stanford-05-edited-1.jpg" alt="Student">
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Services Scroll Section -->
+    <section id="scroll-services" style="background:#f9f6f3; padding:80px 0;">
+
+        <div class="container">
+            <h1
+                style="font-family: 'Georgia', serif; font-weight:700; font-size:3rem; line-height:1.2; margin-bottom:1rem; text-align:left;">
+                <span style="font-style: italic; color:#c3423f; font-weight:400;">Everything Your Child
+                    Needs.</span><br>
+                <span style="color: rgb(116 7 14)">All in One Place.</span>
+
+            </h1>
+            <p style="font-size:1.125rem; line-height:1.6; max-width:600px;">
+                We guide our students through every step — from strategy to essays and extracurriculars. Trusted by
+                families nationwide, with 1,300+ Ivy League acceptances and counting.
+            </p>
+        </div>
+
+        <div class="container scroll-container">
+            <!-- LEFT TEXT (Sticky) -->
+            <div class="left-text">
+                <div id="service-text">
+                    <h2>Get in With a Winning Strategy</h2>
+                    <p>A seasoned college admissions consultant curates the perfect school list, timeline,
+                        and unique theme that helps your child stand out above the competition.</p>
+                </div>
+            </div>
+
+            <!-- RIGHT IMAGES (Scroll controlled) -->
+            <div class="right-images">
+                <div id="image-slider">
+                    <div class="images-wrap">
+                        <img src="https://a.storyblok.com/f/64062/1159x960/27e5dc21da/home-winning-strategy_en.png"
+                            class="slide" alt="Winning Strategy">
+                        <img src="https://a.storyblok.com/f/64062/1133x961/7fc658cc63/home-high-impact-capstone-project_en.png"
+                            class="slide" alt="Capstone Project">
+                        <img src="https://a.storyblok.com/f/64062/1159x961/525b1ed4f7/home-stand-out-research_en.png"
+                            class="slide" alt="Stand Out Research">
+                        <img src="https://a.storyblok.com/f/64062/1159x961/a69beb7e3e/home-honors-awards_en.png"
+                            class="slide" alt="Honors & Awards">
+                        <img src="https://a.storyblok.com/f/64062/1158x961/28ef4c4326/home-essays_en.png" class="slide"
+                            alt="Essays">
+                        <img src="https://a.storyblok.com/f/64062/1133x961/6795aac6ab/home-fao_en.png" class="slide"
+                            alt="Ivy League FAO">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Webinars & Events Section -->
+    <section class="webinars-section py-5" style="background-color:#f8f5f2;">
+        <div class="container">
+            <h1
+                style="font-family: 'Georgia', serif; font-weight:700; font-size:3rem; line-height:1.2; margin-bottom:1rem; text-align:left;">
+                <span style="font-style: italic; color:#c3423f; font-weight:400;">Live With the Experts.</span><br>
+                <span style="color: rgb(116 7 14)">All in One Place.</span>
+            </h1>
+            <!-- <p style="font-size:1.125rem; line-height:1.6; max-width:600px;"></p> -->
+            <!-- <p class="fw-semibold" style="font-style:italic; color:#a00;">Live With the Experts.</p> -->
+            <!-- <h1 class="fw-bold mb-5" style="color:#400000;">Webinars & Events.</h1> -->
+
+            <div class="swiper webinarsSwiper">
+                <div class="swiper-wrapper">
+
+                    <!-- Card 1 -->
+                    <div class="swiper-slide">
+                        <div class="acceptance-card">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="Gurugram">
+                            <div class="acceptance-content">
+                                <p class="small text-muted mb-1">Thursday, November 6 · 6:00 PM IST</p>
+                                <span class="inperson">In-person Event</span>
+                                <h5 class="mt-2 fw-semibold">Extracurriculars That Help Gurugram Students in Grades 5–8,
+                                    Stand Out for the Ivy League</h5>
+                                <a href="#" class="signup-link">Sign Up →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="swiper-slide">
+                        <div class="acceptance-card">
+                            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" alt="Chennai">
+                            <div class="acceptance-content">
+                                <p class="small text-muted mb-1">Thursday, November 6 · 6:00 PM IST</p>
+                                <span class="inperson">In-person Event</span>
+                                <h5 class="mt-2 fw-semibold">Extracurriculars That Help Chennai Students in Grades 5–8,
+                                    Stand Out for the Ivy League</h5>
+                                <a href="#" class="signup-link">Sign Up →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="swiper-slide">
+                        <div class="acceptance-card">
+                            <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb" alt="Hyderabad">
+                            <div class="acceptance-content">
+                                <p class="small text-muted mb-1">Friday, November 7 · 5:30 PM IST</p>
+                                <span class="inperson">In-person Event</span>
+                                <h5 class="mt-2 fw-semibold">Extracurriculars That Help Hyderabad Students in Grades
+                                    5–8, Stand Out for the Ivy League</h5>
+                                <a href="#" class="signup-link">Sign Up →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="swiper-slide">
+                        <div class="acceptance-card">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="Gurugram">
+                            <div class="acceptance-content">
+                                <p class="small text-muted mb-1">Thursday, November 6 · 6:00 PM IST</p>
+                                <span class="inperson">In-person Event</span>
+                                <h5 class="mt-2 fw-semibold">Extracurriculars That Help Gurugram Students in Grades 5–8,
+                                    Stand Out for the Ivy League</h5>
+                                <a href="#" class="signup-link">Sign Up →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="swiper-slide">
+                        <div class="acceptance-card">
+                            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" alt="Chennai">
+                            <div class="acceptance-content">
+                                <p class="small text-muted mb-1">Thursday, November 6 · 6:00 PM IST</p>
+                                <span class="inperson">In-person Event</span>
+                                <h5 class="mt-2 fw-semibold">Extracurriculars That Help Chennai Students in Grades 5–8,
+                                    Stand Out for the Ivy League</h5>
+                                <a href="#" class="signup-link">Sign Up →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="swiper-slide">
+                        <div class="acceptance-card">
+                            <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb" alt="Hyderabad">
+                            <div class="acceptance-content">
+                                <p class="small text-muted mb-1">Friday, November 7 · 5:30 PM IST</p>
+                                <span class="inperson">In-person Event</span>
+                                <h5 class="mt-2 fw-semibold">Extracurriculars That Help Hyderabad Students in Grades
+                                    5–8, Stand Out for the Ivy League</h5>
+                                <a href="#" class="signup-link">Sign Up →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Arrows -->
+                <div class="swiper-button-prev webinar-btn"></div>
+                <div class="swiper-button-next webinar-btn"></div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
+                <h6 class="mb-3 mb-md-0 fw-semibold text-secondary">Book a free consultation with one of our expert
+                    advisors.
+                </h6>
+                <a href="#" class="btn btn-get-started">Get Started</a>
+            </div>
+            <hr>
+            <div class="row mt-4">
+                <div class="col-12 col-sm-6 col-md-3 mb-4">
+                    <h5 class="mb-3">Our Services</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">US Admissions Consulting</a></li>
+                        <li class="mb-2"><a href="#">UK Admissions Consulting</a></li>
+                        <li class="mb-2"><a href="#">University Prep (11–14)</a></li>
+                        <li class="mb-2"><a href="#">Post Grad Admissions</a></li>
+                        <li class="mb-2"><a href="#">Athletics Recruitment</a></li>
+                        <li class="mb-2"><a href="#">EU Admissions</a></li>
+                        <li class="mb-2"><a href="#">SAT Tutoring</a></li>
+                        <li class="mb-2"><a href="#">Essay Review</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 mb-4">
+                    <h5 class="mb-3">About Crimson</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">Our Consultants</a></li>
+                        <li class="mb-2"><a href="#">Our Results</a></li>
+                        <li class="mb-2"><a href="#">Student Stories</a></li>
+                        <li class="mb-2"><a href="#">Our Story</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 mb-4">
+                    <h5 class="mb-3">Admission Resources</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">Explore Resources</a></li>
+                        <li class="mb-2"><a href="#">SAT Practice Tests</a></li>
+                        <li class="mb-2"><a href="#">ACT Practice Tests</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 mb-4">
+                    <h5 class="mb-3">Events</h5>
+                    <a href="#" class="d-block mb-3">Upcoming Events</a>
+                    <h5 class="mb-3 mt-4">Follow Us</h5>
+                    <div
+                        class="social-icons d-flex flex-wrap justify-content-start justify-content-sm-start gap-2 mb-3">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                    <div class="language-btn"><i class="fas fa-globe"></i> English (India)</div>
+                </div>
+            </div>
+            <div class="footer-bottom text-center">
+                <p class="mb-2">
+                    <a href="#" class="mx-2">Terms Of Use</a> |
+                    <a href="#" class="mx-2">Cookie Preferences</a> |
+                    <a href="#" class="mx-2">Privacy Policy</a>
+                </p>
+                <p class="mb-2">&copy; 2025 Crimson Education. All rights reserved.</p>
+                <p class="small px-3">
+                    Crimson Education is not affiliated or associated with any university, college, or education
+                    institution mentioned on this website.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        var swiperWebinars = new Swiper(".webinarsSwiper", {
+            slidesPerView: 3.5,
+            spaceBetween: 30,
+            loop: false,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                0: {
+                    slidesPerView: 1.1,
+                    spaceBetween: 10
+                },
+                576: {
+                    slidesPerView: 1.5,
+                    spaceBetween: 15
+                },
+                768: {
+                    slidesPerView: 2.2,
+                    spaceBetween: 20
+                },
+                992: {
+                    slidesPerView: 2.5,
+                    spaceBetween: 25
+                },
+                1200: {
+                    slidesPerView: 3.5,
+                    spaceBetween: 30
+                }
+            }
+        });
+    </script>
+
+    <script>
+        const slides = document.querySelectorAll(".slide");
+        const textBox = document.getElementById("service-text");
+
+        const slidesData = [
+            {
+                img: "https://a.storyblok.com/f/64062/1159x960/27e5dc21da/home-winning-strategy_en.png",
+                title: "Get in With a Winning Strategy",
+                desc: "A seasoned college admissions consultant curates the perfect school list, timeline, and unique theme that helps your child stand out above the competition."
+            },
+            {
+                img: "https://a.storyblok.com/f/64062/1133x961/7fc658cc63/home-high-impact-capstone-project_en.png",
+                title: "Showcase Leadership With a High-Impact Capstone Project",
+                desc: "Specialist capstone advisors help your child create and scale a passion-driven project that makes a real-world impact."
+            },
+            {
+                img: "https://a.storyblok.com/f/64062/1159x961/525b1ed4f7/home-stand-out-research_en.png",
+                title: "Conduct Research That Stands Out",
+                desc: "Professors and PhD mentors from schools like Harvard, Stanford, and MIT help your child show academic excellence by developing and publishing original research."
+            },
+            {
+                img: "https://a.storyblok.com/f/64062/1159x961/a69beb7e3e/home-honors-awards_en.png",
+                title: "Win Prestigious Honors & Awards",
+                desc: "With coaching from past winners and judges, your child is guided on how to compete in some of the most respected global academic competitions."
+            },
+            {
+                img: "https://a.storyblok.com/f/64062/1158x961/28ef4c4326/home-essays_en.png",
+                title: "Write Essays That Seal the Deal",
+                desc: "From the perfect topic to final polish, our essay experts guide your child on how to write a personal statement and supplemental essays that prove why they belong on campus."
+            },
+            {
+                img: "https://a.storyblok.com/f/64062/1133x961/6795aac6ab/home-fao_en.png",
+                title: "Former Ivy League Admissions Officers, Now Working for You",
+                desc: "FAOs from the Ivy League and other top schools review your child’s application with an insider’s eye. Your child hits “submit” knowing that it’s acceptance-worthy."
+            }
+        ];
+
+        window.addEventListener("scroll", () => {
+            const section = document.querySelector("#scroll-services");
+            const rect = section.getBoundingClientRect();
+            const progress = Math.min(Math.max(-rect.top / (rect.height - window.innerHeight), 0), 1);
+            const index = Math.floor(progress * slides.length);
+
+            slides.forEach((s, i) => {
+                s.classList.remove("active", "prev");
+                if (i === index) s.classList.add("active");
+                if (i < index) s.classList.add("prev");
+            });
+
+            if (slidesData[index]) {
+                textBox.innerHTML = `
+            <h2>${slidesData[index].title}</h2>
+            <p>${slidesData[index].desc}</p>
+        `;
+            }
+        });
+    </script>
+
+</body>
+
+</html>
