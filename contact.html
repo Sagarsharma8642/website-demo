@@ -2,342 +2,835 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Let's Chat About Your SAT Dreams!</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consultation Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- SwiperJS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" />
+
+
     <style>
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa, #f1e8ff);
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            background-color: #f9f7f3;
             color: #333;
-            padding: 32px 0 32px 0;
-            min-height: 100vh;
+            margin: 0;
+            line-height: 1.6;
         }
 
-        .contact-section {
-            text-align: center;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 16px;
+        /* Navbar */
+        .navbar {
+            background-color: #0b0b0b;
+            padding: 1rem 2rem;
         }
 
-        h1 {
-            font-size: 2.2rem;
+        .navbar-brand {
             font-weight: 700;
-            margin-bottom: 10px;
-            letter-spacing: -1px;
+            color: #fff !important;
         }
 
-        .subtitle {
-            color: #666;
-            margin-bottom: 36px;
-            font-size: 1.08rem;
+        .nav-link {
+            color: #fff !important;
+            margin-right: 20px;
+            font-weight: 500;
+            font-size: 0.95rem;
         }
 
-        .contact-container {
+        .nav-link:hover {
+            color: #ff2b2b !important;
+        }
+
+        .btn-get-started {
+            background-color: #ff2b2b;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 4px;
+            color: #fff;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-get-started:hover {
+            background-color: #d61f1f;
+        }
+
+        /* MAIN CONTAINER */
+        .container {
+            margin-top: 8%;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: flex-start;
-            gap: 48px;
+            /* padding: 60px 8%; */
+            gap: 40px;
             flex-wrap: wrap;
-            width: 100vw;
-            max-width: 100vw;
-            margin-left: calc(-50vw + 50%);
-            margin-right: calc(-50vw + 50%);
         }
 
-        /* Left Section */
-        .contact-info {
+        /* LEFT SECTION */
+        .consultation {
+            flex: 1 1 60%;
+            min-width: 300px;
+        }
 
-            border-radius: 18px;
-            padding: 28px 24px 24px 24px;
-            width: 50vw;
-            min-width: 320px;
-            max-width: 700px;
-            text-align: left;
+        .consultation h1 {
+            color: #870000;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .consultation p.intro {
+            margin-bottom: 25px;
+            font-size: 1rem;
+        }
+
+        /* .consultation-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        } */
+
+        .consultation-items {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px 60px;
+        }
+
+        @media (max-width: 700px) {
+            .consultation-items {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        .item-number {
+            font-size: 1.8rem;
+            color: #b00;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .item-text {
+            font-size: 0.95rem;
+            color: #444;
+        }
+
+        /* RIGHT SECTION (FORM CARD) */
+        .contact-box {
+            flex: 1 1 350px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+
+        .contact-box h2 {
+            font-size: 1.6rem;
+            color: #222;
+            margin-bottom: 10px;
+        }
+
+        .contact-box p {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .btn-group {
+            margin-bottom: 20px;
+        }
+
+        .btn-group button {
+            border: 1px solid #b00;
+            background: none;
+            color: #b00;
+            padding: 8px 18px;
+            border-radius: 5px;
+            margin-right: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .btn-group button.active,
+        .btn-group button:hover {
+            background-color: #b00;
+            color: white;
+        }
+
+        form {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            margin-top: 10px;
         }
 
-        .contact-info h3 {
-            font-size: 1.25rem;
-            margin-bottom: 18px;
-            color: #6a3cff;
-            font-weight: 600;
+        input[type="text"],
+        input[type="email"] {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 12px;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            width: 100%;
         }
 
-        .info-item {
+        button.submit-btn {
+            background-color: #870000;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        button.submit-btn:hover {
+            background-color: #a40000;
+        }
+
+        .success {
+            background: #e7ffe7;
+            color: #046604;
+            border: 1px solid #9adf9a;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            text-align: center;
+            display: none;
+        }
+
+        /* FAQ SECTION */
+        .faq-section {
+            padding: 60px 8%;
+            background: #f9f7f3;
+        }
+
+        .faq-section h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #2c2c2c;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #dcdcdc;
+            margin-bottom: 10px;
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            font-size: 1.05rem;
+            font-family: Georgia, serif;
+            color: #1e1e1e;
+            padding: 12px 0;
+            cursor: pointer;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            margin-bottom: 16px;
         }
 
-        .icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            margin-right: 13px;
-            flex-shrink: 0;
+        .faq-question::after {
+            content: "▼";
+            font-size: 0.9rem;
+            color: #600;
+            transition: transform 0.3s;
         }
 
-        .phone {
-            background: linear-gradient(135deg, #8A77FF, #6AD2FF);
+        .faq-question.active::after {
+            transform: rotate(180deg);
         }
 
-        .email {
-            background: linear-gradient(135deg, #6AD2FF, #8AFFC1);
+        .faq-answer {
+            display: none;
+            padding: 0 0 15px 0;
+            color: #444;
+            font-size: 0.95rem;
         }
 
-        .location {
-            background: linear-gradient(135deg, #FF7AA2, #FFB58A);
+        .faq-answer ul {
+            margin-top: 8px;
+            padding-left: 20px;
         }
 
-        .clock {
-            background: linear-gradient(135deg, #FFD36A, #FFA45A);
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+                padding: 40px 6%;
+            }
+
+            .contact-box {
+                width: 100%;
+                margin-top: 30px;
+            }
+
+            .consultation-items {
+                grid-template-columns: 1fr;
+            }
         }
 
-        h4 {
+
+        /* Footer */
+        footer {
+            background-color: #fff;
+            color: #400000;
+            padding: 60px 0 20px;
+        }
+
+        footer h5 {
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #7a0e0e;
+        }
+
+        footer a {
+            color: #7a0e0e;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .social-icons a {
+            background-color: #7a0e0e;
+            color: #fff;
+            border-radius: 50%;
+            display: inline-block;
+            width: 38px;
+            height: 38px;
+            line-height: 38px;
+            text-align: center;
+            margin-right: 8px;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            background-color: #c41e3a;
+        }
+
+        .language-btn {
+            border: 1px solid #7a0e0e;
+            padding: 6px 12px;
+            border-radius: 5px;
+            color: #7a0e0e;
+            display: inline-flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .language-btn i {
+            margin-right: 8px;
+        }
+
+
+
+        /* Footer General */
+        .footer-container {
+            max-width: 68%;
+            margin: 0 auto;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .footer-top h6 {
             font-size: 1rem;
             font-weight: 600;
-            margin-bottom: 2px;
         }
 
-        .info-item p {
-            font-size: 0.92rem;
+
+        .btn-get-started:hover {
+            background: #a40000;
+        }
+
+        /* Footer Links Grid */
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .footer-column h5 {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: #870000;
+        }
+
+
+
+        .social-icons a {
+            background-color: #7a0e0e;
+            color: #fff;
+            border-radius: 50%;
+            display: inline-block;
+            width: 38px;
+            height: 38px;
+            line-height: 38px;
+            text-align: center;
+            margin-right: 8px;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            background-color: #c41e3a;
+        }
+
+        .language-btn {
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        /* Footer Bottom */
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.85rem;
             color: #555;
         }
 
-        /* Right Form */
-        .contact-form {
-            background: linear-gradient(135deg, #ffeaff, #fff6ff);
-            border-radius: 18px;
-            padding: 28px 24px 24px 24px;
-            width: 50vw;
-            min-width: 320px;
-            max-width: 700px;
-            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.07);
-            text-align: left;
-            display: flex;
-            flex-direction: column;
-            gap: 0;
+        .footer-bottom a {
+            color: #555;
+            text-decoration: none;
+            margin: 0 5px;
         }
 
-        .contact-form h3 {
-            font-size: 1.18rem;
-            margin-bottom: 18px;
-            color: #6a3cff;
-            font-weight: 600;
+        .footer-bottom a:hover {
+            color: #870000;
         }
 
-        .form-row {
-            display: flex;
-            gap: 12px;
+        .small-note {
+            margin-top: 10px;
         }
 
-        .form-group {
-            margin-bottom: 13px;
-            width: 100%;
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .footer-links {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
-        label {
-            font-weight: 600;
-            font-size: 0.93rem;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        input,
-        select {
-            width: 100%;
-            padding: 9px 11px;
-            border: none;
-            border-radius: 8px;
-            outline: none;
-            background: #fff;
-            font-size: 0.97rem;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-            margin-bottom: 2px;
-        }
-
-        button {
-            background: linear-gradient(135deg, #8A77FF, #6AD2FF);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 12px 0;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
-            width: 100%;
-            margin-top: 8px;
-        }
-
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.09);
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 900px) {
-            .contact-container {
+        @media (max-width: 700px) {
+            .footer-top {
                 flex-direction: column;
-                align-items: stretch;
-                gap: 28px;
+                text-align: center;
             }
 
-            .contact-info,
-            .contact-form {
-                width: 100%;
-                max-width: 100vw;
+            .footer-links {
+                grid-template-columns: 1fr;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+
+            .language-btn {
+                text-align: center;
+            }
+        }
+
+
+        .footer-bottom {
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .navbar-nav {
+                padding: 1rem 0;
+                background: rgba(11, 11, 11, 0.95);
+            }
+
+            .nav-item {
+                text-align: center;
+            }
+
+            .hero {
+                text-align: center;
+                padding: 80px 15px 40px;
+            }
+
+            .hero-text {
+                margin-bottom: 40px;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-text h5 {
+                font-size: 1rem;
+            }
+
+            .hero-text p {
+                font-size: 1rem;
+            }
+
+            .hero-img img {
+                max-width: 100%;
                 margin: 0 auto;
             }
+
+            #scroll-services {
+                padding: 60px 0;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .footer .col-md-3 {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
         }
 
-        @media (max-width: 600px) {
-            body {
-                padding: 12px 0 12px 0;
+        @media (max-width: 576px) {
+            .navbar-brand {
+                font-size: 1.2rem;
             }
 
-            .contact-section {
-                padding: 0 4px;
+            .hero-text h1 {
+                font-size: 1.8rem;
             }
 
-            h1 {
-                font-size: 1.3rem;
+            .btn-get-started {
+                width: 100%;
+                margin: 10px 0;
             }
 
-            .contact-form,
-            .contact-info {
-                padding: 16px 6px 14px 6px;
-                border-radius: 10px;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            .webinars-section h1 {
+                font-size: 1.8rem;
             }
 
-            .form-row {
-                flex-direction: column;
-                gap: 0;
+            .acceptance-card {
+                margin: 0 10px;
             }
 
-            label,
-            input,
-            select {
-                font-size: 0.93rem;
+            footer {
+                padding: 40px 0 20px;
             }
 
-            button {
-                font-size: 0.97rem;
-                padding: 10px 0;
+            .footer-bottom {
+                font-size: 0.8rem;
             }
         }
     </style>
 </head>
 
 <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand me-4" href="index.html">Crimson Education</a>
+            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-    <section class="contact-section">
-        <h1>Let's Chat About Your SAT Dreams!</h1>
-        <p class="subtitle">🌟 Ready to join the SAT success squad? Hit us up and let's make your college dreams come
-            true!</p>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Left-aligned nav items -->
+                <ul class="navbar-nav align-items-lg-center me-auto"> <!-- me-auto pushes the button to the right -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Our Services</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">US Admissions</a></li>
+                            <li><a class="dropdown-item" href="#">UK Admissions</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">About Crimson</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Our Story</a></li>
+                            <li><a class="dropdown-item" href="#">Results</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Admission Resources</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">SAT Prep</a></li>
+                            <li><a class="dropdown-item" href="#">ACT Prep</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sat.html">SAT</a>
+                    </li>
+                </ul>
 
-        <div class="contact-container">
+                <!-- Right-aligned button -->
+                <a href="contact.html" class="btn btn-get-started">Get Started</a>
+            </div>
+        </div>
+    </nav>
 
-            <!-- Left Contact Info -->
-            <div class="contact-info">
-                <h3>Let's Connect! <span>♡</span></h3>
 
-                <div class="info-item">
-                    <div class="icon phone"
-                        style="display:flex;align-items:center;justify-content:center;font-size:1.3rem;">📞</div>
-                    <div>
-                        <h4>Call or Text Us!</h4>
-                        <p>+91 98765 43210</p>
-                    </div>
+
+
+    <div class="container">
+        <!-- LEFT SECTION -->
+        <section class="consultation">
+            <h1>What happens in a consultation?</h1>
+            <p class="intro">
+                A consultation is your first chance to discuss your child’s admissions goals with an expert. During the
+                consultation, you will:
+            </p>
+
+            <div class="consultation-items">
+                <div>
+                    <div class="item-number">01</div>
+                    <div class="item-text">Get an assessment of your child's current academic candidacy and where they
+                        stand as a
+                        potential top college applicant.</div>
                 </div>
-
-                <div class="info-item">
-                    <div class="icon email"
-                        style="display:flex;align-items:center;justify-content:center;font-size:1.3rem;">✉️</div>
-                    <div>
-                        <h4>Drop Us an Email!</h4>
-                        <p>info@satexcellence.com</p>
-                    </div>
+                <div>
+                    <div class="item-number">02</div>
+                    <div class="item-text">Discuss your child's academic and extracurricular strengths and weaknesses
+                        and analyze
+                        what it will take for them to gain admission to reach schools.</div>
                 </div>
-
-                <div class="info-item">
-                    <div class="icon location"
-                        style="display:flex;align-items:center;justify-content:center;font-size:1.3rem;">📍</div>
-                    <div>
-                        <h4>Where We Are</h4>
-                        <p>🌐 Online + Cool Offline Centers</p>
-                    </div>
+                <div>
+                    <div class="item-number">03</div>
+                    <div class="item-text">Gain an understanding of how Crimson works and the type of personalized
+                        roadmap we will
+                        build to maximize admissions odds.</div>
                 </div>
-
-                <div class="info-item">
-                    <div class="icon clock"
-                        style="display:flex;align-items:center;justify-content:center;font-size:1.3rem;">⏰</div>
-                    <div>
-                        <h4>When We're Available</h4>
-                        <p>Mon–Sat: 9 AM – 7 PM ☀️</p>
-                    </div>
+                <div>
+                    <div class="item-number">04</div>
+                    <div class="item-text">Formulate a plan with support options that align with your child's needs and
+                        your
+                        family's budget.</div>
                 </div>
             </div>
+        </section>
 
-            <!-- Right Contact Form -->
-            <form class="contact-form"  method="POST">
-                <h3>💌 Send Us a Message 🔍</h3>
+        <!-- RIGHT SECTION -->
+        <aside class="contact-box">
+            <h2>Get In Touch</h2>
+            <p>We’ll reach out to schedule a quick introductory call.</p>
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>🌼 Name</label>
-                        <input type="text" name="name" placeholder="Your full name" required>
-                    </div>
-                </div>
+            <p>Are you a student or a guardian?</p>
+            <div class="btn-group">
+                <button type="button" class="active" id="studentBtn">Student</button>
+                <button type="button" id="guardianBtn">Guardian</button>
+            </div>
 
-                <div class="form-group">
-                    <label>📧 Email</label>
-                    <input type="email" name="email" placeholder="your.email@awesome.com" required>
-                </div>
-
-                <div class="form-group">
-                    <label>📱 Phone</label>
-                    <input type="text" name="phone" placeholder="+91 your number" required>
-                </div>
-
-                <div class="form-group">
-                    <label>🎓 How Do You Want to Learn?</label>
-                    <select name="learning_mode" required>
-                        <option value="">Pick your style! 🌼</option>
-                        <option>Online Coaching</option>
-                        <option>Offline Center</option>
-                        <option>Hybrid (Both)</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label>📝 Description</label>
-                    <textarea name="description" rows="4" placeholder="Tell us about your SAT goals or questions..."
-                        style="width:100%;padding:9px 11px;border-radius:8px;font-size:0.97rem;resize:vertical;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,0.04);border:none;outline:none;"
-                        required></textarea>
-                </div>
-
-                <button type="submit">Send Message 🚀</button>
-                <div style="font-size:0.93rem;color:#666;margin-top:8px;">We'll never share your info. You'll get a
-                    confirmation email after submitting.</div>
+            <form id="contactForm">
+                <input type="text" name="firstName" placeholder="Enter your first name" required />
+                <input type="text" name="lastName" placeholder="Enter your last name" required />
+                <input type="email" name="email" placeholder="Enter your email" required />
+                <button type="submit" class="submit-btn">Submit</button>
             </form>
 
+            <div class="success" id="successMsg">✅ Form submitted successfully!</div>
+        </aside>
+    </div>
+
+    <!-- FAQ SECTION -->
+    <section class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <button class="faq-question">What services does Crimson Education offer?</button>
+            <div class="faq-answer">
+                <p>Crimson provides comprehensive admissions support, including:</p>
+                <ul>
+                    <li>Personalized Roadmap</li>
+                    <li>Expert Guidance</li>
+                    <li>Essay Development</li>
+                    <li>Interview Preparation</li>
+                    <li>Financial Aid & Scholarship Help</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">What makes Crimson Education different?</button>
+            <div class="faq-answer">
+                <p>Crimson offers personalized, data-driven guidance from experts to help students reach dream
+                    universities.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Who are Crimson’s counselors?</button>
+            <div class="faq-answer">
+                <p>Our counselors are graduates from top universities such as Harvard, Oxford, and Stanford.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">How much does Crimson cost?</button>
+            <div class="faq-answer">
+                <p>Each plan is customized depending on the level of support needed. Book a consultation to get a quote.
+                </p>
+            </div>
         </div>
     </section>
 
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
+                <h6 class="mb-3 mb-md-0 fw-semibold text-secondary">Book a free consultation with one of our expert
+                    advisors.
+                </h6>
+                <a href="#" class="btn btn-get-started">Get Started</a>
+            </div>
+            <hr>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h5>Our Services</h5>
+                    <ul>
+                        <li><a href="#">US Admissions Consulting</a></li>
+                        <li><a href="#">UK Admissions Consulting</a></li>
+                        <li><a href="#">University Prep (11–14)</a></li>
+                        <li><a href="#">Post Grad Admissions</a></li>
+                        <li><a href="#">Athletics Recruitment</a></li>
+                        <li><a href="#">EU Admissions</a></li>
+                        <li><a href="#">SAT Tutoring</a></li>
+                        <li><a href="#">Essay Review</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h5>About Crimson</h5>
+                    <ul>
+                        <li><a href="#">Our Consultants</a></li>
+                        <li><a href="#">Our Results</a></li>
+                        <li><a href="#">Student Stories</a></li>
+                        <li><a href="#">Our Story</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h5>Admission Resources</h5>
+                    <ul>
+                        <li><a href="#">Explore Resources</a></li>
+                        <li><a href="#">SAT Practice Tests</a></li>
+                        <li><a href="#">ACT Practice Tests</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h5>Events</h5>
+                    <a href="#">Upcoming Events</a>
+                    <h5>Follow Us</h5>
+                    <div
+                        class="social-icons d-flex flex-wrap justify-content-start justify-content-sm-start gap-2 mb-3">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                    <div class="language-btn"><i class="fas fa-globe"></i> English (India)</div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>
+                    <a href="#">Terms Of Use</a> |
+                    <a href="#">Cookie Preferences</a> |
+                    <a href="#">Privacy Policy</a>
+                </p>
+                <p>&copy; 2025 Crimson Education. All rights reserved.</p>
+                <p class="small-note">
+                    Crimson Education is not affiliated or associated with any university, college, or education
+                    institution mentioned on this website.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Toggle Student/Guardian Button
+        const studentBtn = document.getElementById("studentBtn");
+        const guardianBtn = document.getElementById("guardianBtn");
+
+        [studentBtn, guardianBtn].forEach(btn => {
+            btn.addEventListener("click", () => {
+                [studentBtn, guardianBtn].forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+            });
+        });
+
+        // Form Submission Success
+        const form = document.getElementById("contactForm");
+        const successMsg = document.getElementById("successMsg");
+
+        form.addEventListener("submit", e => {
+            e.preventDefault();
+            successMsg.style.display = "block";
+            form.reset();
+            setTimeout(() => (successMsg.style.display = "none"), 3000);
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll(".faq-question").forEach(btn => {
+            btn.addEventListener("click", () => {
+                const answer = btn.nextElementSibling;
+                const isActive = btn.classList.contains("active");
+
+                document.querySelectorAll(".faq-question").forEach(q => {
+                    q.classList.remove("active");
+                    q.nextElementSibling.style.display = "none";
+                });
+
+                if (!isActive) {
+                    btn.classList.add("active");
+                    answer.style.display = "block";
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
