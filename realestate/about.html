@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .navbar {
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand img {
+            height: 45px;
+        }
+
+        .nav-link {
+            color: #002e6e !important;
+            margin-right: 15px;
+        }
+
+        .nav-link:hover {
+            color: #007bff !important;
+        }
+
+        .btn-primary {
+            background-color: #004aad;
+            border: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary:hover {
+            background-color: #00367d;
+        }
+
+        /* ===== Footer ===== */
+        .footer {
+            background: linear-gradient(90deg, #004aad, #0091d9);
+            color: #fff;
+        }
+
+        .footer a {
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #fff;
+        }
+
+        .footer .bi:hover {
+            transform: scale(1.2);
+            color: #fff;
+        }
+
+        #about h2,
+        #about h3 {
+            position: relative;
+        }
+
+        #about h2::after,
+        #about h3::after {
+            content: "";
+            display: block;
+            width: 70px;
+            height: 3px;
+            background: #004aad;
+            margin-top: 8px;
+            border-radius: 5px;
+        }
+
+        #about img {
+            transition: transform 0.5s ease;
+        }
+
+        #about img:hover {
+            transform: scale(1.03);
+        }
+
+        .timeline-item {
+            max-width: 500px;
+        }
+
+        .card img {
+            height: 250px;
+            object-fit: cover;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar navbar-expand-lg bg-white shadow-sm py-3 sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">Logo</a>
+            <!-- <a class="navbar-brand d-flex align-items-center" href="#">Logo</a> -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a href="about.html" class="nav-link fw-medium">About Us</a></li>
+                    <li class="nav-item"><a href="realestate.html" class="nav-link fw-medium">Realestate</a></li>
+                    <li class="nav-item"><a href="loan.html" class="nav-link fw-medium">Loan</a></li>
+                    <li class="nav-item ms-3">
+                        <a href="tel:+919152556556" class="nav-link fw-semibold text-dark">
+                            <i class="bi bi-telephone me-1"></i> +91-9152556556
+                        </a>
+                    </li>
+                    <li class="nav-item mt-2 mt-lg-0">
+                        <a href="#" class="btn btn-primary fw-semibold px-3 w-100 w-lg-auto">DOWNLOAD APP</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <!-- ===== ABOUT SECTION START ===== -->
+    <section id="about" class="py-5 bg-light">
+        <div class="container">
+
+            <!-- 1️⃣ Intro -->
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=1000&q=80"
+                        alt="About Our Company" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="fw-bold text-primary mb-3">About Our Company</h2>
+                    <p class="text-muted">
+                        We are a forward-thinking financial services provider committed to making credit accessible and
+                        simple.
+                        From personal loans to large business financing, we aim to empower individuals and enterprises
+                        alike
+                        with quick, transparent, and responsible lending solutions.
+                    </p>
+                    <p class="text-muted">
+                        Founded with a vision to modernize finance through technology and trust, we have built
+                        partnerships
+                        with top lenders and clients across India.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 2️⃣ Mission -->
+            <div class="row align-items-center mb-5 flex-lg-row-reverse">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1000&q=80"
+                        alt="Mission" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-6">
+                    <h3 class="fw-semibold text-primary mb-3">Our Mission</h3>
+                    <p class="text-muted">
+                        To redefine the financial experience by providing seamless and inclusive lending services that
+                        build trust and long-term relationships.
+                    </p>
+                    <ul class="list-unstyled text-muted">
+                        <li><i class="bi bi-check-circle text-success me-2"></i> Transparent loan processes</li>
+                        <li><i class="bi bi-check-circle text-success me-2"></i> AI-powered eligibility matching</li>
+                        <li><i class="bi bi-check-circle text-success me-2"></i> 24x7 personalized support</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 3️⃣ Vision -->
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1000&q=80"
+                        alt="Vision" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-6">
+                    <h3 class="fw-semibold text-primary mb-3">Our Vision</h3>
+                    <p class="text-muted">
+                        To be India’s most trusted financial partner—bridging dreams and opportunities through
+                        accessible,
+                        tech-driven, and ethical lending solutions.
+                    </p>
+                    <p class="text-muted">
+                        We believe that finance should uplift people’s lives and fuel the ambitions that create change.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 4️⃣ Why Choose Us -->
+            <div class="text-center mb-5">
+                <h3 class="fw-bold text-primary mb-4">Why Choose Us?</h3>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="p-4 border rounded shadow-sm h-100 bg-white">
+                            <i class="bi bi-people fs-1 text-primary mb-3"></i>
+                            <h5 class="fw-semibold">Experienced Team</h5>
+                            <p class="text-muted">Our professionals bring years of expertise in lending and financial
+                                advisory.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-4 border rounded shadow-sm h-100 bg-white">
+                            <i class="bi bi-lightning-charge fs-1 text-primary mb-3"></i>
+                            <h5 class="fw-semibold">Fast Processing</h5>
+                            <p class="text-muted">Streamlined digital process ensures faster approval and disbursement.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-4 border rounded shadow-sm h-100 bg-white">
+                            <i class="bi bi-shield-check fs-1 text-primary mb-3"></i>
+                            <h5 class="fw-semibold">Trusted by Thousands</h5>
+                            <p class="text-muted">Transparent policies and excellent service make us a customer
+                                favorite.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5️⃣ Meet Our Team -->
+            <div class="text-center mb-5">
+                <h3 class="fw-bold text-primary mb-4">Meet Our Team</h3>
+                <div class="row g-4">
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card border-0 shadow-sm">
+                            <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=800&q=80"
+                                class="card-img-top" alt="Team Member">
+                            <div class="card-body">
+                                <h6 class="fw-bold mb-1">Rohit Sharma</h6>
+                                <p class="text-muted small">CEO & Founder</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card border-0 shadow-sm">
+                            <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=800&q=80"
+                                class="card-img-top" alt="Team Member">
+                            <div class="card-body">
+                                <h6 class="fw-bold mb-1">Priya Desai</h6>
+                                <p class="text-muted small">Chief Financial Officer</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card border-0 shadow-sm">
+                            <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=800&q=80"
+                                class="card-img-top" alt="Team Member">
+                            <div class="card-body">
+                                <h6 class="fw-bold mb-1">Ankit Mehta</h6>
+                                <p class="text-muted small">Head of Operations</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card border-0 shadow-sm">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80"
+                                class="card-img-top" alt="Team Member">
+                            <div class="card-body">
+                                <h6 class="fw-bold mb-1">Nisha Kapoor</h6>
+                                <p class="text-muted small">Marketing Lead</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6️⃣ Our Journey -->
+            <div class="container py-5">
+                <h3 class="fw-bold text-primary text-center mb-4">Our Journey</h3>
+                <p class="text-muted text-center mb-5 px-lg-5">
+                    From a small startup to one of India’s most trusted financial partners — our journey reflects the
+                    power of vision and commitment. Here’s how we grew over the years.
+                </p>
+
+                <div class="timeline position-relative mx-auto" style="max-width:600px;">
+
+
+                    <!-- Timeline item -->
+                    <div class="timeline-item position-relative mb-5 d-flex align-items-center">
+                        <div class="timeline-circle bg-primary text-white fw-bold d-flex justify-content-center align-items-center p-2">2018</div>
+                        <p class="ms-4 mb-0 text-muted">Founded with a small team and a big dream to make lending easier.</p>
+                    </div>
+
+                    <div class="timeline-item position-relative mb-5 d-flex align-items-center">
+                        <div class="timeline-circle bg-primary text-white fw-bold d-flex justify-content-center align-items-center p-2">2020</div>
+                        <p class="ms-4 mb-0 text-muted">Expanded operations to 10 cities and partnered with 15+ major banks.</p>
+                    </div>
+
+                    <div class="timeline-item position-relative mb-5 d-flex align-items-center">
+                        <div class="timeline-circle bg-primary text-white fw-bold d-flex justify-content-center align-items-center p-2">2023</div>
+                        <p class="ms-4 mb-0 text-muted">Launched our digital loan platform serving thousands of customers daily.</p>
+                    </div>
+
+                    <div class="timeline-item position-relative mb-5 d-flex align-items-center">
+                        <div class="timeline-circle bg-primary text-white fw-bold d-flex justify-content-center align-items-center p-2">2025</div>
+                        <p class="ms-4 mb-0 text-muted">Planning to expand globally and introduce AI-powered financial tools.</p>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+        </div>
+    </section>
+    <!-- ===== ABOUT SECTION END ===== -->
+
+
+
+
+
+    <!-- ===== FOOTER ===== -->
+    <!-- FOOTER START -->
+    <footer class="footer text-white pt-5 pb-4" style="background: linear-gradient(90deg, #004aad, #0091d9);">
+        <div class="container">
+            <div class="row gy-4">
+                <!-- Logo + Contact Info -->
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <!-- <img src="" alt="Logo" class="mb-3" style="max-width:180px;"> -->
+                        <h3>Logo</h3>
+                    </div>
+                    <p>158, Dani Corporate Park, C.S.T Road Kalina, Santacruz (E),<br>Mumbai - 400098</p>
+                    <p class="mb-1"><strong>Mail Us:</strong> <a href="mailto:contact@gmail.in"
+                            class="text-white text-decoration-none">contact@gmail.in</a></p>
+                    <p><strong>Call Us:</strong> <a href="tel:+919152556556"
+                            class="text-white text-decoration-none">+91-9152556556</a></p>
+                    <!-- Social Icons -->
+                    <div class="d-flex mt-3">
+                        <a href="#" class="text-white fs-5 me-3"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-white fs-5 me-3"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="text-white fs-5 me-3"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="text-white fs-5 me-3"><i class="bi bi-youtube"></i></a>
+                        <a href="#" class="text-white fs-5 me-3"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Company -->
+                <div class="col-md-2 col-6">
+                    <h6 class="fw-bold mb-3">Company</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50 text-decoration-none">Careers</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">About Us</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Contact Us</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Lending Partners</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Grievance Redressal</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">RBI Sachet Portal</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources -->
+                <div class="col-md-3 col-6">
+                    <h6 class="fw-bold mb-3">Resources</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50 text-decoration-none">Media Coverage</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Free Credit Score</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Events</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Blogs</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Annual Return</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Indian Retail Loans Overview</a></li>
+                    </ul>
+                </div>
+
+                <!-- DSA Section -->
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3">DSA</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50 text-decoration-none">DSA Partner</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Loan Agent</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">EMI Calculator</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="border-light my-4">
+
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+                <p class="mb-2 mb-md-0 small">© SALES & DISTRIBUTION PRIVATE LIMITED</p>
+                <div>
+                    <a href="#" class="text-white-50 text-decoration-none me-3">TERMS OF USE</a>
+                    <a href="#" class="text-white-50 text-decoration-none">PRIVACY POLICY</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back to top button -->
+        <button onclick="window.scrollTo({top:0,behavior:'smooth'})"
+            class="btn btn-light rounded-circle position-fixed bottom-0 end-0 m-4 shadow">
+            <i class="bi bi-arrow-up text-primary"></i>
+        </button>
+    </footer>
+    <!-- FOOTER END -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
